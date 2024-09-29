@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Loader2 } from 'lucide-react'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { USER_API_END_POINT } from './utils/constant'
+import { USER_API_END_POINT } from './utils/constant.js'
 import axios from 'axios'
 import { setUser } from '@/redux/authSlice'
 import { toast } from 'sonner'
