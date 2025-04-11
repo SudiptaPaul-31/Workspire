@@ -84,7 +84,7 @@ const Signup = () => { // Correctly declaring Signup
                             value={input.fullname}
                             name="fullname"
                             onChange={changeEventHandler}
-                            placeholder="Sudipta"
+                            placeholder="Enter fullname"
                         />
                     </div>
 
@@ -95,7 +95,7 @@ const Signup = () => { // Correctly declaring Signup
                             value={input.phoneNumber}
                             name="phoneNumber"
                             onChange={changeEventHandler}
-                            placeholder="9797979797"
+                            placeholder="Enter phone number"
                         />
                     </div>
 
@@ -117,7 +117,7 @@ const Signup = () => { // Correctly declaring Signup
                             value={input.password}
                             name="password"
                             onChange={changeEventHandler}
-                            placeholder="psudipta@gmail.com"
+                            placeholder="Enter your email"
                         />
                     </div >
 
