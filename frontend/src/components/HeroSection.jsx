@@ -1,5 +1,3 @@
-"use client"
-
 import { useState, useEffect } from "react"
 import { Button } from "./ui/button"
 import { Search } from "lucide-react"
@@ -75,8 +73,8 @@ const HeroSection = () => {
         ))}
       </div>
 
-      {/* Subtle grid overlay for texture */}
-      <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10"></div>
+
+      <div className="absolute inset-0 opacity-10"></div>
 
       <div className="container relative z-10 mx-auto flex min-h-[70vh] items-center px-4 text-center">
         <div className="mx-auto flex max-w-4xl flex-col items-center gap-8">

@@ -1,5 +1,3 @@
-"use client"
-
 import { PopoverContent, Popover, PopoverTrigger } from "../ui/popover"
 import { Avatar, AvatarImage } from "../ui/avatar"
 import { Button } from "../ui/button"
