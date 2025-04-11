@@ -212,7 +212,7 @@ const Navbar = () => {
               {!user ? (
                 <div className="flex flex-col gap-3 mt-5">
                   <Link to="/login" onClick={() => setMobileMenuOpen(false)}>
-                    <Button variant="outline" className="w-full border-white/20 text-white hover:bg-white/10">
+                    <Button variant="outline" className="w-full border-white/50 text-white hover:bg-white/10">
                       Login
                     </Button>
                   </Link>
