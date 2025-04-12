@@ -102,7 +102,7 @@ const Navbar = () => {
             {!user ? (
               <>
                 <Link to="/login">
-                  <Button variant="outline" className="border-white/20 text-white hover:bg-white/10 hover:text-white">
+                  <Button variant="outline" className="border-white/20 text-white bg-white/10 hover:bg-white/10 hover:text-white">
                     Login
                   </Button>
                 </Link>
