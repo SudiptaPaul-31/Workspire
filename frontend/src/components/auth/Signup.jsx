@@ -13,7 +13,6 @@ import { Loader2 } from "lucide-react";
 import { setLoading } from "@/redux/authSlice";
 
 const Signup = () => {
-  // Correctly declaring Signup
   const [input, setInput] = useState({
     fullname: "",
     email: "",
@@ -46,6 +45,7 @@ const Signup = () => {
     if (input.file) {
       formData.append("file", input.file);
     }
+
     try {
       dispatch(setLoading(true));
       const res = await axios.post(`${USER_API_END_POINT}/register`, formData, {
@@ -54,6 +54,7 @@ const Signup = () => {
         },
         withCredentials: true,
       });
+
       if (res.data.success) {
         navigate("/login");
         toast.success(res.data.message);
@@ -69,115 +70,112 @@ const Signup = () => {
     if (user) {
       navigate("/");
     }
-  });
+  }, [user, navigate]);
 
   return (
-    <div>
+    <div className="min-h-screen bg-cover bg-center bg-no-repeat flex flex-col" style={{ backgroundImage: `url('/your-background.jpg')` }}>
       <Navbar />
-      <div className="flex items-center justify-center max-w-7xl mx-auto">
+      <div className="flex flex-1 items-center justify-center px-4 pt-20">
         <form
           onSubmit={submitHandler}
-          className="w-1/2 border border-gray-200 rounded-md p-4 my-10"
+          className="w-full max-w-md bg-black/50 backdrop-blur-lg text-white shadow-2xl rounded-2xl p-6"
         >
-          <h1 className="font-bold text-xl mb-5">Sign Up</h1>
-          <div className="my-2">
+          <h1 className="font-bold text-2xl mb-6 text-center">Sign Up</h1>
+
+          <div className="mb-4">
             <Label>Full Name</Label>
             <Input
               type="text"
-              value={input.fullname}
               name="fullname"
+              value={input.fullname}
               onChange={changeEventHandler}
               placeholder="Enter fullname"
             />
           </div>
 
-          <div className="my-2">
+          <div className="mb-4">
             <Label>Phone Number</Label>
             <Input
               type="text"
-              value={input.phoneNumber}
               name="phoneNumber"
+              value={input.phoneNumber}
               onChange={changeEventHandler}
               placeholder="Enter phone number"
             />
           </div>
 
-          <div className="my-2">
+          <div className="mb-4">
             <Label>Email</Label>
             <Input
               type="email"
-              value={input.email}
               name="email"
+              value={input.email}
               onChange={changeEventHandler}
               placeholder="psudipta@gmail.com"
             />
           </div>
 
-          <div className="my-2">
+          <div className="mb-4">
             <Label>Password</Label>
             <Input
               type="password"
-              value={input.password}
               name="password"
+              value={input.password}
               onChange={changeEventHandler}
-              placeholder="Enter your email"
+              placeholder="Enter password"
             />
           </div>
 
-          <div className="flex items-center justify-between">
-            <RadioGroup className="flex items-center gap-4 my-5">
-              <div className="flex items-center space-x-2">
-                <Input
-                  type="radio"
-                  name="role"
-                  value="student"
-                  checked={input.role === "student"}
-                  onChange={changeEventHandler}
-                  className="cursor-pointer"
-                />
-                <Label htmlFor="r1">Student</Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Input
-                  type="radio"
-                  name="role"
-                  value="recruiter"
-                  checked={input.role === "recruiter"}
-                  onChange={changeEventHandler}
-                  className="cursor-pointer"
-                />
-                <Label htmlFor="r2">Recruiter</Label>
-              </div>
-            </RadioGroup>
-
-            <div className="flex items-center gap-2">
-              <Label>Profile</Label>
+          <RadioGroup className="flex justify-between my-4">
+            <div className="flex items-center space-x-2">
               <Input
-                accept="image/*"
-                type="file"
-                onChange={changeFileHandler}
-                className="cursor-pointer"
-                required
+                type="radio"
+                name="role"
+                value="student"
+                checked={input.role === "student"}
+                onChange={changeEventHandler}
               />
+              <Label>Student</Label>
             </div>
+            <div className="flex items-center space-x-2">
+              <Input
+                type="radio"
+                name="role"
+                value="recruiter"
+                checked={input.role === "recruiter"}
+                onChange={changeEventHandler}
+              />
+              <Label>Recruiter</Label>
+            </div>
+          </RadioGroup>
+
+          <div className="mb-4">
+            <Label>Profile Picture</Label>
+            <Input
+              type="file"
+              accept="image/*"
+              onChange={changeFileHandler}
+              required
+            />
           </div>
+
           {loading ? (
-            <Button className="w-full my-4">
-              {" "}
+            <Button className="w-full" disabled>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              Please wait{" "}
+              Please wait
             </Button>
           ) : (
-            <Button type="submit" className="w-full my-4">
+            <Button type="submit" className="w-full">
               Signup
             </Button>
           )}
-          <span text-sm>
+
+          <p className="text-sm mt-4 text-center">
             Already have an account?{" "}
-            <Link to="/login" className="text-blue-600">
+            <Link to="/login" className="text-blue-400 hover:underline">
               Login
             </Link>
-          </span>
+          </p>
         </form>
       </div>
     </div>
